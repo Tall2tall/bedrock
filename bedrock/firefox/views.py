@@ -367,6 +367,9 @@ class FirstrunView(l10n_utils.LangFilesMixin, TemplateView):
         # add version to context for use in templates
         ctx['version'] = self.kwargs.get('version') or ''
 
+        # add variation for FxA copy experiment
+        ctx['v'] = self.request.GET.get('v', None)
+
         return ctx
 
     def get_template_names(self):
